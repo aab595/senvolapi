@@ -1,7 +1,8 @@
+// IMPORTING EXTERNAL MODULES
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-// ROUTES IMPORT
+// IMPORTING ROUTES
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const flightRoute = require("./routes/flight");
