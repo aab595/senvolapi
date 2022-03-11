@@ -4,7 +4,7 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
 // REGISTER
-router.post("/register", async (req, res, next) => {
+router.post("/register", async (req, res) => {
 	const savedUser = new User({
 		username: req.body.username,
 		email: req.body.email,
@@ -22,11 +22,11 @@ router.post("/register", async (req, res, next) => {
 });
 
 // LOGIN
-router.post("/login", async (req, res, next) => {
+router.post("/login", async (req, res) => {
 	try {
 		const findUser = await User.findOne({ username: req.body.username });
 		if (!findUser) {
-			res.status(404).json("User Not Found!");
+			res.status(404).json({ message: "User Not Found!" });
 		} else {
 			// DECRYPT PASSWORD
 			const hashedPasswordDecrypted = CryptoJS.AES.decrypt(
@@ -45,17 +45,21 @@ router.post("/login", async (req, res, next) => {
 						isAdmin: findUser.isAdmin,
 					},
 					process.env.JWT_SEC,
-					{ expiresIn: "3d" }
+					{ expiresIn: "24h" }
 				);
 				// HOOK FOR NONE DISPLAY PASSWORD
 				const { password, ...others } = findUser._doc;
-				res.status(200).json({ ...others, accessToken });
+				res.status(200).json({
+					message: "LogIn Successfully!",
+					...others,
+					accessToken,
+				});
 			} else {
-				res.status(409).json("Wrong Credentials");
+				res.status(409).json({ message: "Wrong Credentials" });
 			}
 		}
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).json({ message: err.message });
 	}
 });
 

@@ -4,13 +4,16 @@ const Flight = require("../models/Flight");
 
 // CREATE FLIGHT
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
-    newFlight = new Flight(req.body);
-    try {
-        const flight = await newFlight.save()
-        res.status(201).json(flight)
+	newFlight = new Flight(req.body);
+	try {
+		const flight = await newFlight.save();
+		res.status(201).json({
+			message: "Flight added successfully!",
+			flight,
+		});
 	} catch (err) {
-        res.status(500).json(err)
-    }
+		res.status(500).json(err);
+	}
 });
 
 // GET ALL FLIGHT
@@ -53,9 +56,9 @@ router.put("/edit/:id", verifyTokenAndAdmin, async (req, res) => {
 router.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
 	try {
 		await Flight.findByIdAndDelete(req.params.id);
-		res.status(200).json("Flight has been deleted.");
+		res.status(200).json({ message: "Flight has been deleted." });
 	} catch (err) {
-		res.status.json(err);
+		res.status(500).json({ message: err.message });
 	}
 });
 
