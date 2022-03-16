@@ -7,6 +7,7 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const flightRoute = require("./routes/flight");
 const reservationRoute = require("./routes/reservation");
+const destinationRoute = require("./routes/destination");
 
 const app = express();
 // PARSING JSON BODY
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/flight", flightRoute);
 app.use("/api/reservation", reservationRoute);
+app.use("/api/destination", destinationRoute);
 
 // SERVER STARTUP
 app.listen(PORT, () => {
