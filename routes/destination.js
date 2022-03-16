@@ -1,11 +1,8 @@
 const router = require("express").Router();
-const {
-	verifyTokenAndAdmin,
-	verifyToken,
-} = require("../middleware/verifyToken");
+const { verifyTokenAndAdmin } = require("../middleware/verifyToken");
 const Destination = require("../models/Destination");
 
-// CREATE Destination
+// CREATE DESTINATION
 router.post("/create", verifyTokenAndAdmin, async (req, res) => {
 	const newDestination = new Destination(req.body);
 	try {
@@ -19,7 +16,7 @@ router.post("/create", verifyTokenAndAdmin, async (req, res) => {
 	}
 });
 
-// GET ALL Destination
+// GET ALL DESTINATION
 router.get("/", async (req, res) => {
 	try {
 		const destinations = await Destination.find();
@@ -29,7 +26,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
-// GET Destination
+// GET DESTINATION
 router.get("/show/:id", async (req, res) => {
 	try {
 		const destination = await Destination.findById(req.params.id);
@@ -39,7 +36,7 @@ router.get("/show/:id", async (req, res) => {
 	}
 });
 
-// EDIT Destination
+// EDIT DESTINATION
 router.put("/edit/:id", verifyTokenAndAdmin, async (req, res) => {
 	try {
 		const updatedDestination = await Destination.findByIdAndUpdate(
@@ -58,7 +55,7 @@ router.put("/edit/:id", verifyTokenAndAdmin, async (req, res) => {
 	}
 });
 
-// DELETE Destination
+// DELETE DESTINATION
 router.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
 	try {
 		await Destination.findByIdAndDelete(req.params.id);

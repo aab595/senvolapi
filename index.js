@@ -3,9 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 // IMPORTING ROUTES
-const userRoute = require("./routes/user");
-const authRoute = require("./routes/auth");
-const flightRoute = require("./routes/flight");
+const userRoute        = require("./routes/user");
+const authRoute        = require("./routes/auth");
+const flightRoute      = require("./routes/flight");
 const reservationRoute = require("./routes/reservation");
 const destinationRoute = require("./routes/destination");
 
