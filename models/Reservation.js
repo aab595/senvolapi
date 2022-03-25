@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ReservationSchema = new mongoose.Schema(
+const ReservationSchema = mongoose.Schema(
 	{
 		volRef: {
 			type: mongoose.Types.ObjectId,

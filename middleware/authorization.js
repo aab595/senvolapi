@@ -4,13 +4,13 @@ const verifyToken = (req, res, next) => {
 	const authHeader = req.headers.token;
 	if (authHeader) {
 		const token = authHeader.split(" ")[1];
-		jwt.verify(token, process.env.JWT_SEC, (err, user) => {
-			if (err) res.status(403).json("Token is not valid");
+		jwt.verify(token, process.env.JWT_SEC_KEY, (err, user) => {
+			if (err) res.status(403).json("Jeton non valide !");
 			req.user = user;
 			next();
 		});
 	} else {
-		return res.status(401).json("You are not authenticated!");
+		return res.status(401).json("Vous n'êtes pas authentifié !");
 	}
 };
 
@@ -19,7 +19,7 @@ const verifyTokenAndAuthorization = (req, res, next) => {
 		if (req.user.id === req.params.id || req.user.isAdmin) {
 			next();
 		} else {
-			res.status(403).json("You are not allowed to do that!");
+			res.status(403).json("Action non autorisée !");
 		}
 	});
 };
@@ -29,7 +29,7 @@ const verifyTokenAndAdmin = (req, res, next) => {
 		if (req.user.isAdmin) {
 			next();
 		} else {
-			res.status(403).json("You are not allowed to do that!");
+			res.status(403).json("Action non autorisée !");
 		}
 	});
 };
