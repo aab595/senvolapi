@@ -39,7 +39,7 @@ exports.login = (req, res, next) => {
 							.json({ error: "Mot de passe incorrect !" });
 					}
 
-					const accessToken = jwt.sign(
+					const token = jwt.sign(
 						{
 							id: user._id,
 							isAdmin: user.isAdmin,
@@ -51,7 +51,7 @@ exports.login = (req, res, next) => {
 					const { password, ...others } = user._doc;
 					res.status(200).json({
 						...others,
-						accessToken,
+						token,
 					});
 				})
 				.catch((error) =>
