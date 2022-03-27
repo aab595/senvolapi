@@ -64,6 +64,7 @@ These are APIs that Node.js Express App will export:
 | `DELETE`    | api/reservations/delete/:id | Delete Reservation By Id |
 
 <center>👇 DESTINATION ✈️</center><hr>
+
 | __METHODS__ | __URLS__             | __ACTIONS__              |
 |-------------|----------------------|--------------------------|
 | `GET`       | api/destinations     | Get All Destination      |
