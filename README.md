@@ -36,29 +36,38 @@ These are APIs that Node.js Express App will export:
 
 <center>👇 USER 👨‍⚖️</center><hr>
 
-| __METHODS__ | __URLS__              | __ACTIONS__       |
-|-------------|-----------------------|-------------------|
-| `GET`       | api/users             | Get All Users     |
-| `GET`       | api/users/show/:id    | Get User By Id    |
-| `PUT`       | api/users/edit/:id    | Update User By Id |
-| `DELETE`    | api/users/delete/:id  | Delete User By Id |
+| __METHODS__ | __URLS__       | __ACTIONS__       |
+|-------------|----------------|-------------------|
+| `GET`       | api/users      | Get All Users     |
+| `GET`       | api/users/:id  | Get User By Id    |
+| `PUT`       | api/users/:id  | Update User By Id |
+| `DELETE`    | api/users/:id  | Delete User By Id |
 
 <center>👇 FLIGHT ✈️</center><hr>
 
-| __METHODS__ | __URLS__              | __ACTIONS__         |
-|-------------|-----------------------|---------------------|
-| `GET`       | api/flight            | Get All Flight      |
-| `GET`       | api/flight/show/:id   | Get Flight By Id    |
-| `POST`      | api/flight            | Add New Flight      |
-| `PUT`       | api/flight/edit/:id   | Update Flight By Id |
-| `DELETE`    | api/flight/delete/:id | Delete Flight By Id |
+| __METHODS__ | __URLS__        | __ACTIONS__         |
+|-------------|-----------------|---------------------|
+| `GET`       | api/flights     | Get All Flight      |
+| `GET`       | api/flights/:id | Get Flight By Id    |
+| `POST`      | api/flights     | Add New Flight      |
+| `PUT`       | api/flights/:id | Update Flight By Id |
+| `DELETE`    | api/flights/:id | Delete Flight By Id |
 
 <center>👇 RESERVATION 📋</center><hr>
 
-| __METHODS__ | __URLS__                   | __ACTIONS__              |
-|-------------|----------------------------|--------------------------|
-| `GET`       | api/reservation            | Get All Reservation      |
-| `GET`       | api/reservation/show/:id   | Get Reservation By Id    |
-| `POST`      | api/reservation            | Add New Reservation      |
-| `PUT`       | api/reservation/edit/:id   | Update Reservation By Id |
-| `DELETE`    | api/reservation/delete/:id | Delete Reservation By Id |
+| __METHODS__ | __URLS__                    | __ACTIONS__              |
+|-------------|-----------------------------|--------------------------|
+| `GET`       | api/reservations            | Get All Reservation      |
+| `GET`       | api/reservations/show/:id   | Get Reservation By Id    |
+| `POST`      | api/reservations            | Add New Reservation      |
+| `PUT`       | api/reservations/edit/:id   | Update Reservation By Id |
+| `DELETE`    | api/reservations/delete/:id | Delete Reservation By Id |
+
+<center>👇 DESTINATION ✈️</center><hr>
+| __METHODS__ | __URLS__             | __ACTIONS__              |
+|-------------|----------------------|--------------------------|
+| `GET`       | api/destinations     | Get All Destination      |
+| `GET`       | api/destinations/:id | Get Destination By Id    |
+| `POST`      | api/destinations     | Add New Destination      |
+| `PUT`       | api/destinations/:id | Update Destination By Id |
+| `DELETE`    | api/destinations/:id | Delete Destination By Id |
