@@ -2,13 +2,13 @@ const Destination = require("../models/Destination");
 
 exports.getAllDestination = (req, res, next) => {
 	Destination.find()
-		.then((destinations) => res.status(200).json({ destinations }))
+		.then((destinations) => res.status(200).json(destinations))
 		.catch((error) => res.status(400).json({ error }));
 };
 
 exports.getOneDestination = (req, res, next) => {
 	Destination.findOne({ _id: req.params.id })
-		.then((destination) => res.status(200).json({ destination }))
+		.then((destination) => res.status(200).json(destination))
 		.catch((error) => res.status(404).json({ error }));
 };
 

@@ -2,13 +2,13 @@ const Reservation = require("../models/Reservation");
 
 exports.getAllReservation = (req, res, next) => {
 	Reservation.find()
-		.then((reservations) => res.status(200).json({ reservations }))
+		.then((reservations) => res.status(200).json(reservations))
 		.catch((error) => res.status(400).json({ error }));
 };
 
 exports.getOneReservation = (req, res, next) => {
 	Reservation.findOne({ _id: req.params.id })
-		.then((reservation) => res.status(200).json({ reservation }))
+		.then((reservation) => res.status(200).json(reservation))
 		.catch((error) => res.status(404).json({ error }));
 };
 

@@ -52,6 +52,7 @@ exports.login = (req, res, next) => {
 					res.status(200).json({
 						...others,
 						token,
+						expiresIn: parseInt(process.env.JWT_EXPIRE_TIME) // hour unit
 					});
 				})
 				.catch((error) =>
