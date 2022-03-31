@@ -2,7 +2,23 @@ const Reservation = require("../models/Reservation");
 
 exports.getAllReservation = (req, res, next) => {
 	Reservation.find()
-		.then((reservations) => res.status(200).json(reservations))
+		.then((reservations) => {
+			if (req.user.isAdmin) {
+				res.status(200).json(reservations)
+			} else {
+				const filteredReservations = []
+				reservations.forEach(reservation => {
+					if (reservation.userRef == req.user.id) {
+						filteredReservations.push(reservation)
+					}
+				})
+				if (filteredReservations.length > 0) {
+					res.status(200).json(filteredReservations)
+				} else {
+					res.status(200).json({ message: "Aucune réservation n'a été enrégistrée !" })
+				}
+			}
+		})
 		.catch((error) => res.status(400).json({ error }));
 };
 

@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const ReservationSchema = mongoose.Schema(
 	{
+		userRef: {
+			type: mongoose.Types.ObjectId,
+			required: true,
+		},
 		volRef: {
 			type: mongoose.Types.ObjectId,
 			required: true,

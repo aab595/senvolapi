@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const reservationCtrl = require("../controllers/reservation");
-const { verifyTokenAndAuthorization } = require("../middleware/authorization");
+const { verifyToken } = require("../middleware/authorization");
 
-router.get("/", verifyTokenAndAuthorization, reservationCtrl.getAllReservation);
-router.post("/", verifyTokenAndAuthorization, reservationCtrl.createReservation);
-router.get("/:id", verifyTokenAndAuthorization, reservationCtrl.getOneReservation);
-router.put("/:id", verifyTokenAndAuthorization, reservationCtrl.modifyReservation);
-router.delete("/:id", verifyTokenAndAuthorization, reservationCtrl.deleteReservation);
+router.get("/", verifyToken, reservationCtrl.getAllReservation);
+router.post("/", verifyToken, reservationCtrl.createReservation);
+router.get("/:id", verifyToken, reservationCtrl.getOneReservation);
+router.put("/:id", verifyToken, reservationCtrl.modifyReservation);
+router.delete("/:id", verifyToken, reservationCtrl.deleteReservation);
 
 module.exports = router;
