@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const ReservationSchema = mongoose.Schema(
 	{
 		userRef: {
-			type: mongoose.Types.ObjectId,
+			type: String,
 			required: true,
 		},
 		volRef: {
-			type: mongoose.Types.ObjectId,
+			type: String,
 			required: true,
 		},
 		numPassenger: {

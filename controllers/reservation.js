@@ -4,7 +4,7 @@ exports.getAllReservation = (req, res, next) => {
 	Reservation.find()
 		.then((reservations) => {
 			if (req.user.isAdmin) {
-				res.status(200).json(reservations)
+				res.status(200).json({ status: 'success', payload: reservations, message: '' })
 			} else {
 				const filteredReservations = []
 				reservations.forEach(reservation => {
@@ -13,9 +13,9 @@ exports.getAllReservation = (req, res, next) => {
 					}
 				})
 				if (filteredReservations.length > 0) {
-					res.status(200).json(filteredReservations)
+					res.status(200).json({ status: 'success', payload: filteredReservations, message: '' })
 				} else {
-					res.status(200).json({ message: "Aucune réservation n'a été enrégistrée !" })
+					res.status(200).json({ status: 'fail', payload: [], message: "Aucune réservation n'a été enrégistrée !" })
 				}
 			}
 		})
