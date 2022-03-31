@@ -72,3 +72,66 @@ These are APIs that Node.js Express App will export:
 | `POST`      | api/destinations     | Add New Destination      |
 | `PUT`       | api/destinations/:id | Update Destination By Id |
 | `DELETE`    | api/destinations/:id | Delete Destination By Id |
+
+<h2 style="color: #1371C3; text-align: center; padding: 10px 0; border: 3px solid; text-transform: uppercase;">📦 Deployment Processing</h2>
+
+---
+
+We've heroku for the deployment processing by following the following steps :
+
+__LOGIN TO HEROKU WITH THE CLI__
+
+```bash
+heroku login
+```
+
+__CREATE THE APP__
+
+```bash
+heroku create senvolapi
+```
+
+We ensure that our repository is already deployed on github by doing :
+
+```bash
+git add .
+git commit -m "Last commit"
+git push
+```
+
+__PUSH THE APP ON HEROKU__
+
+```bash
+git push heroku master
+```
+
+__ADDING Procfile__
+
+It is the file which content the main command (from `package.json` => `npm start`) able to launch our `api`.
+In our case the content is `web: npm start`
+
+```bash
+touch Procfile
+```
+
+After that, we must push all modifications to heroku (first to github!)
+
+__ADDING ENVIRONMENT VARIABLES__
+
+We define our environment variables to `.env` file in the main folder. Without the lattest, we can't communicate with the backend correctly, we couldn't get information from database.
+
+As database, we've use `MongoDB` and `MongoDB Atlas`.
+
+```bash
+heroku config:set MONGODB_URI="OUR_DB_ACCESS"
+```
+
+```bash
+heroku config:set JWT_SEC_KEY="OUR_JWT_KEY"
+```
+
+```bash
+heroku config:set JWT_EXPIRE_TIME="OUR_JWT_EXPIRE_TIME"
+```
+
+And finally we can use as we want our backend services with client services 😇
