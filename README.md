@@ -77,7 +77,7 @@ These are APIs that Node.js Express App will export:
 
 ---
 
-We've heroku for the deployment processing by following the following steps :
+We've used heroku for the deployment processing by following the following steps :
 
 __LOGIN TO HEROKU WITH THE CLI__
 
