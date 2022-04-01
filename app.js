@@ -1,9 +1,9 @@
 // IMPORTING EXTERNAL MODULES
 require("dotenv").config();
-const compression = require("compression")
+const compression = require("compression");
 const express     = require("express");
 const mongoose    = require("mongoose");
-// APP COMPRESSING
+const app         = express();
 // IMPORTING ROUTES
 const userRoute        = require("./routes/user");
 const authRoute        = require("./routes/auth");
@@ -11,8 +11,8 @@ const flightRoute      = require("./routes/flight");
 const reservationRoute = require("./routes/reservation");
 const destinationRoute = require("./routes/destination");
 
-const app  = express();
-app.use(compression())
+// COMPRESS RESPONSES
+app.use(compression());
 
 // DB CONNECTION
 mongoose
