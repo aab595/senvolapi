@@ -4,17 +4,15 @@ const compression = require("compression")
 const express     = require("express");
 const mongoose    = require("mongoose");
 // APP COMPRESSING
-app.use(compression())
 // IMPORTING ROUTES
 const userRoute        = require("./routes/user");
 const authRoute        = require("./routes/auth");
 const flightRoute      = require("./routes/flight");
 const reservationRoute = require("./routes/reservation");
 const destinationRoute = require("./routes/destination");
-// DECLARATIONS
+
 const app  = express();
-const HOST = process.env.HOST;
-const PORT = process.env.PORT;
+app.use(compression())
 
 // DB CONNECTION
 mongoose
